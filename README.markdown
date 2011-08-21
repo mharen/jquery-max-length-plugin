@@ -14,7 +14,10 @@ And this call to the plugin:
 
     $('textarea').maxLength(100);
 
-The plugin will prevent the user from entering more than 100 characters into the textarea. Check out `demo.html` a more complex example.
+The plugin will prevent the user from entering more than 100 characters into the textarea. Check out `demo.html` a more complex example, including some fancy stuff like this, where the max length is specified by an attribute:
+
+	<textarea class='max-by-val' data-val-length-max="5"></textarea>
+	<input class='max-by-val' data-val-length-max="7"/>
 
 ##Note!
 This plugin allows you to keep on chaining, so, for example:
