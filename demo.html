@@ -8,7 +8,8 @@
 	<script>
 		$(function(){
 		
-			$('input,textarea').maxLength(10);
+			$('.max-10').maxLength(10);
+			$('.max-by-val').maxLength();
 			
 		});
 	</script>
@@ -17,14 +18,24 @@
 	<fieldset>
 		<legend>Behold! A limited input!</legend>
 		<label>Try to enter more than 10 characters here:<br/>
-			<input/>
+			<input class='max-10'/>
 		</label>
 	</fieldset>
 	<br/>
 	<fieldset>
 		<legend>ZOMG! A limited textarea!</legend>
 		<label>Try to enter more than 10 characters here:<br/>
-			<textarea></textarea>
+			<textarea class='max-10'></textarea>
+		</label>
+	</fieldset>
+	<fieldset>
+		<legend>ZOMG! Inputs limited via 'data-val-length-max' the attribute!</legend>
+		<label>Try to enter more than 5 characters here:<br/>
+			<textarea class='max-by-val' data-val-length-max="5"></textarea>
+		</label>
+		<br/>
+		<label>Try to enter more than 7 characters here:<br/>
+			<input class='max-by-val' data-val-length-max="7"/>
 		</label>
 	</fieldset>
 </body>
