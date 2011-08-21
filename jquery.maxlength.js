@@ -33,7 +33,7 @@
 		if (typeof(item) !== "object"){
 			options = { maxLength: options };
 		}
-		var settings = $.extend({}, $.fn.endlessInputs.defaultOptions, options);
+		var settings = $.extend({}, $.fn.maxLength.defaultOptions, options);
 		
 		return this.each(function() {
 			var $this = $(this);
