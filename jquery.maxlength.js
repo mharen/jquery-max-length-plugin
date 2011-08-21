@@ -27,9 +27,25 @@
 */
 ;(function($){
 
-	jQuery.fn.maxLength = function(max) {
+	jQuery.fn.maxLength = function(options) {
+		// if called with an integer, use that as the max
+		// otherwise look at the options hash
+		if (typeof(item) !== "object"){
+			options = { maxLength: options };
+		}
+		var settings = $.extend({}, $.fn.endlessInputs.defaultOptions, options);
+		
 		return this.each(function() {
 			var $this = $(this);
+			
+			var max = settings.maxLength > 0? settings.maxLength : $this.data(settings.dataAttributeName);
+			if(max == null || max == undefined){
+				if(console && console.log){
+					console.log("MaxLength cannot work with given config. Check your options or defaults");
+				}
+				// skip this element
+				return true;
+			}
 			//Get the type of the matched element
 			var type = this.tagName.toLowerCase();
 			//If the type property exists, save it in lower case
@@ -63,5 +79,13 @@
 		});
 	};
 
-	$.fn.maxLength.defaultOptions = { };
+	$.fn.maxLength.defaultOptions = { 
+		// leave off the `data-` prefix and camel case it as described here
+		// http://api.jquery.com/data#data2
+		// for example, if the HTML5 element looks like this:
+		// <input data-val-length-max='10' />
+		// use this dataAttributeName:
+		dataAttributeName: 'valLengthMax',
+		maxLength: 0
+	};
 })(jQuery);
