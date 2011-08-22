@@ -1,10 +1,10 @@
 /*
-	Copyright (c) 2011 Michael Haren, mharen@gmail.com
+	Updated by 2011 Michael Haren, mharen@gmail.com
 	Twitter @mharen
 	Web http://blog.wassupy.com
 	
-	Based on original max length plugin from 
-	Iván Guardado Castro (dev.ivangc@gmail.com) @ http://yensdesign.com/
+	Based on original max length plugin by:
+	(c) Ivï¿½n Guardado Castro (dev.ivangc@gmail.com) @ http://yensdesign.com/
 
 	Permission is hereby granted, free of charge, to any person obtaining
 	a copy of this software and associated documentation files (the
