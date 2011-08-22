@@ -4,7 +4,7 @@
 	Web http://blog.wassupy.com
 	
 	Based on original max length plugin by:
-	(c) Iv�n Guardado Castro (dev.ivangc@gmail.com) @ http://yensdesign.com/
+	(c) Ivan Guardado Castro (dev.ivangc@gmail.com) @ http://yensdesign.com/
 
 	Permission is hereby granted, free of charge, to any person obtaining
 	a copy of this software and associated documentation files (the
