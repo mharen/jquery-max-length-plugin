@@ -76,16 +76,46 @@
 					}
 				});
 			}
+			
+			// add the fillCounter event
+			//$this.keyup(function(){ settings.fillCounter(this, max); });
+			$this.keyup({ max: max }, settings.fillCounter);
 		});
 	};
 
 	$.fn.maxLength.defaultOptions = { 
-		// leave off the `data-` prefix and camel case it as described here
+		// the default max length. If this value is greater than zero, it will be used when
+		// no options are passed in when this plugin is called
+		// This option takes priority over the dataAttributeName option
+		maxLength: 0,
+		
+		// limit the length based on attributes on the element.
+		// Leave off the `data-` prefix and camel case it as described here
 		// http://api.jquery.com/data#data2
 		// for example, if the HTML5 element looks like this:
 		// <input data-val-length-max='10' />
 		// use this dataAttributeName:
 		dataAttributeName: 'valLengthMax',
-		maxLength: 0
+		
+		// Specify an optional function to be executed on keyup. This is a good
+		// place to handle your own character counters.
+		// Set to null to do nothing, leave at 'default' to append the percent 
+		// complete automatically after each input/textarea, or supply your own
+		fillCounter: function(e){
+			var $this = $(this);
+			var max = e.data.max;
+			
+			// see if an element already exists to show the counter
+			var $LimitElement = $this.next('.max-length-character-limit');
+			if($LimitElement.size()===0){
+				// create it
+				$LimitElement = $('<span class="max-length-character-limit" />').insertAfter($this);
+			}
+			
+			// set its value
+			var PercentFull = $this.val().length * 100 / max;
+			PercentFull = Math.round(PercentFull);
+			$LimitElement.text(PercentFull + '% full')
+		}
 	};
 })(jQuery);
